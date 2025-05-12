@@ -9,13 +9,13 @@
 /* Check for the presence of the pthread_setname_np() function,
  * which sets the name of a thread. This function is available on:
  * - glibc 2.12+
- * - FreeBSD 9.0+
- * - NetBSD 8.0+
+ * - FreeBSD 12.2+
+ * - NetBSD 5.0+
  * - macOS 10.6+
  */
-#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 12)    || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(9, 0)   || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(8, 0)    || \
+#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 12)   || \
+    BUILD2_AUTOCONF_FREEBSD_PREREQ(12, 2) || \
+    BUILD2_AUTOCONF_NETBSD_PREREQ(5, 0)   || \
     BUILD2_AUTOCONF_MACOS_PREREQ(10, 6)
 #  define HAVE_PTHREAD_SETNAME_NP 1
 #endif
