@@ -164,6 +164,10 @@
  *
  * Return 1 if the release date of the OpenBSD version is >= the given release
  * date, or 0 otherwise.
+ *
+ * The release date of version X.Y can be found at
+ * https://www.openbsd.org/XY.html. For example
+ * https://www.openbsd.org/27.html for OpenBSD 2.7.
  */
 #if defined(__OpenBSD__) && defined(OpenBSD)
 #  define BUILD2_AUTOCONF_OPENBSD_PREREQ(yyyymm) (OpenBSD >= (yyyymm))
