@@ -8,14 +8,10 @@
 
 /* Check for the presence of the pthread_set_name_np() function,
  * which sets the name of a thread. This is available on:
- * - glibc 2.12+
- * - FreeBSD 9.0+
- * - NetBSD 8.0+
- * - macOS 10.6+
+ * - FreeBSD 5.1+ (note that pthread_setname_np() was added later)
+ * - OpenBSD 2.7 (released June 2000)
  */
-#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 12)    || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(9, 0)   || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(8, 0)    || \
-    BUILD2_AUTOCONF_MACOS_PREREQ(10, 6)
+#if BUILD2_AUTOCONF_FREEBSD_PREREQ(5, 1)   || \
+    BUILD2_AUTOCONF_OPENBSD_PREREQ(200006)
 #  define HAVE_PTHREAD_SET_NAME_NP 1
 #endif
