@@ -9,9 +9,11 @@
 /* This checks if ftruncate() is available, which truncates
  * a file to a specified length.
  */
-#if defined(__linux__) || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(1, 0) || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(1, 3) || \
-    BUILD2_AUTOCONF_MACOS_PREREQ(10, 0)
+#if defined(__GLIBC__)             || \
+    defined(__FreeBSD__)           || \
+    defined(__NetBSD__)            || \
+    defined(__OpenBSD__)           || \
+    defined(BUILD2_AUTOCONF_MACOS) || \
+    defined(__MINGW32__)
 #  define HAVE_FTRUNCATE 1
 #endif
