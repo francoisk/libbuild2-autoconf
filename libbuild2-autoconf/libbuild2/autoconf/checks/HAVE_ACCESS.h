@@ -6,16 +6,26 @@
 
 #undef HAVE_ACCESS
 
-/*  Since glibc 2.1, BSD 4.3, FreeBSD 1.0, OpenBSD 2.0, NetBSD 1.0, MacOS, Mingw-w64 2.0
- *  POSIX.1, SVr4
+/*  Since glibc 2.1, BSD 4.3, FreeBSD 1.0, OpenBSD 2.0 (October 1996), NetBSD
+ *  1.0, MacOS, Windows (including MinGW, Mingw-w64), POSIX.1, SVr4
+ *
+ *  Note that on Windows access() is deprecated in favor of _access() because
+ *  it is a POSIX function that 'it doesn't follow the Standard C rules for
+ *  implementation-specific names'. It is still supported but a warning will
+ *  be issued unless the _CRT_NONSTDC_NO_WARNINGS preprocessor macro is
+ *  defined. See
+ *  https://learn.microsoft.com/en-us/cpp/c-runtime-library/reference/access-crt
+ *  and
+ *  https://learn.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-3-c4996?#posix-function-names
+ *  for details.
  */
-#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 1)    || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(1, 0)  || \
-    BUILD2_AUTOCONF_OPENBSD_PREREQ(199518) || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(1, 0) || \
-    BUILD2_AUTOCONF_MINGW_PREREQ(2, 0) || \
-    defined(BUILD2_AUTOCONF_MACOS) || \
-    (defined(__sun) && defined(__SVR4)) || \
-    defined(_WIN32)
+#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 1)     || \
+    BUILD2_AUTOCONF_FREEBSD_PREREQ(1, 0)   || \
+    BUILD2_AUTOCONF_OPENBSD_PREREQ(199610) || \
+    BUILD2_AUTOCONF_NETBSD_PREREQ(1, 0)    || \
+    defined(BUILD2_AUTOCONF_MACOS)         || \
+    (defined(__sun) && defined(__SVR4))    || \
+    defined(_WIN32)                        || \
+    defined(__MINGW32__)
 #  define HAVE_ACCESS 1
 #endif
