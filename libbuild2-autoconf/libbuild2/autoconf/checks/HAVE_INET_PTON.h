@@ -7,7 +7,7 @@
 #undef HAVE_INET_PTON
 /* Since BSD 4.2 (1983)
  */
-#if defined(__linux__)   || \
+#if defined(__GLIBC__)   || \
     defined(__FreeBSD__) || \
     defined(__OpenBSD__) || \
     defined(__NetBSD__)  || \
