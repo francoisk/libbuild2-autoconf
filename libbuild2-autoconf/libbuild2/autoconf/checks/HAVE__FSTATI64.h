@@ -2,7 +2,7 @@
 
 #undef HAVE__FSTATI64
 
-/* checks for the availability of _fstati64(), a
+/* Checks for the availability of _fstati64(), a
  * Microsoft-specific function that retrieves
  * file status information for a file descriptor
  * using a 64-bit structure. It supports large
