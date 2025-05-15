@@ -6,16 +6,16 @@
 
 #undef HAVE_ISINF
 
-/* Since Linux/glibc 2.1, FreeBSD 5.1, OpenBSD 4.4, NetBSD 1.6, Mac OS 10.3,
- * Windows, MinGW 3.0, Solaris 10
+/* Linux/glibc, FreeBSD, NetBSD, OpenBSD, Mac OS 10.2, Windows, Mingw-w64,
+ * Solaris 10.
  */
-#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 0)     || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(5, 1)   || \
-    BUILD2_AUTOCONF_OPENBSD_PREREQ(200910) || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(1, 3)    || \
-    BUILD2_AUTOCONF_MACOS_PREREQ(10, 3)    || \
-    BUILD2_AUTOCONF_MINGW_PREREQ(3, 0)     || \
-    defined(_WIN32)                        || \
+#if defined(__GLIBC__)                  || \
+    defined(__FreeBSD__)                || \
+    defined(__NetBSD__)                 || \
+    defined(__OpenBSD__)                || \
+    BUILD2_AUTOCONF_MACOS_PREREQ(10, 2) || \
+    defined(__MINGW32__)                || \
+    defined(_WIN32)                     || \
     ((defined(__sun) && defined(__SVR4)) || defined(__sun__))
 #  define HAVE_ISINF 1
 #endif
