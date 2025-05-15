@@ -6,12 +6,13 @@
 
 #undef HAVE_POSIX_MEMALIGN
 
-/* Presence of memalign() function.
- * Since FreeBSD 7.0, OpenBSD 5.5, NetBSD 3.0, MacOS 10.6
+/* Presence of posix_memalign() function.
+ * Since glibc 2.1.91, FreeBSD 7.0, OpenBSD 4.8, NetBSD 5.0, MacOS 10.6
  */
-#if BUILD2_AUTOCONF_FREEBSD_PREREQ(7, 0) || \
-    BUILD2_AUTOCONF_OPENBSD_PREREQ(201405) || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(3, 0) || \
+#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 2)     || \
+    BUILD2_AUTOCONF_FREEBSD_PREREQ(7, 0)   || \
+    BUILD2_AUTOCONF_OPENBSD_PREREQ(201011) || \
+    BUILD2_AUTOCONF_NETBSD_PREREQ(5, 0)    || \
     BUILD2_AUTOCONF_MACOS_PREREQ(10, 6)
 #  define HAVE_POSIX_MEMALIGN 1
 #endif
