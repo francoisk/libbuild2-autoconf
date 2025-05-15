@@ -6,13 +6,14 @@
 
 #undef HAVE_MKSTEMP
 
-/*  Since glibc 2.1, 4.3BSD, FreeBSD 1.0, OpenBSD 2.2, NetBSD 1.3, MacOS v?, Mingw-w64 2.0
+/*  glibc; 4.3BSD and thus FreeBSD, OpenBSD, NetBSD, and Mac OS X since the
+ *  beginning; Mingw-w64 4.0.
  */
-#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 1) || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(1, 0) || \
-    BUILD2_AUTOCONF_OPENBSD_PREREQ(199712) || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(1, 3) || \
-    BUILD2_AUTOCONF_MINGW_PREREQ(1, 0) || \
-    defined(__APPLE__)
+#if defined(__GLIBC__)                 || \
+    defined(__FreeBSD__)               || \
+    defined(__NetBSD__)                || \
+    defined(__OpenBSD__)               || \
+    BUILD2_AUTOCONF_MINGW_PREREQ(4, 0) || \
+    defined(BUILD2_AUTOCONF_MACOS)
 #  define HAVE_MKSTEMP 1
 #endif
