@@ -10,10 +10,11 @@
  * strings case-insensitively.
  * It is a POSIX-compliant function.
  */
-#if defined(__linux__) || \
-    defined(__FreeBSD__) || \
-    defined(__NetBSD__) || \
-    defined(__OpenBSD__) || \
-    defined(__APPLE__)
+#if BUILD2_AUTOCONF_GLIBC_PREREQ(1, 9)  || \
+    defined(__FreeBSD__)                || \
+    defined(__NetBSD__)                 || \
+    defined(__OpenBSD__)                || \
+    BUILD2_AUTOCONF_MACOS_PREREQ(10, 2) || \
+    defined(__MINGW32__)
 #  define HAVE_STRCASECMP 1
 #endif
