@@ -8,9 +8,9 @@
 
 /* Presence of the sched_getaffinity() function, which retrieves
  * the CPU affinity of a process (i.e., which CPUs a process can run on).
- * Since glibc 2.3.4, FreeBSD 7.1
+ *
+ * Since glibc 2.3.
  */
-#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 4) || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(7, 1)
+#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 3)
 #  define HAVE_SCHED_GETAFFINITY 1
 #endif
