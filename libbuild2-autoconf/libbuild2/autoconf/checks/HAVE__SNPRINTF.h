@@ -1,8 +1,4 @@
-// HAVE__SNPRINTF : BUILD2_AUTOCONF_LIBC_VERSION
-
-#ifndef BUILD2_AUTOCONF_LIBC_VERSION
-#  error BUILD2_AUTOCONF_LIBC_VERSION appears to be conditionally included
-#endif
+// HAVE__SNPRINTF
 
 #undef HAVE__SNPRINTF
 
