@@ -9,13 +9,16 @@
 /* This checks for strnlen(), which calculates the length of
  * a string up to a specified maximum.
  * It is a POSIX function.
+ *
+ * Since OpenBSD 4.8 (November 2010).
  */
-#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 10) || \
-    BUILD2_AUTOCONF_FREEBSD_PREREQ(8, 0) || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(6, 0) || \
-    BUILD2_AUTOCONF_MACOS_PREREQ(10, 7) || \
-    defined(_WIN32) || \
-    defined(__MINGW32__) || \
+#if BUILD2_AUTOCONF_GLIBC_PREREQ(2, 0)     || \
+    BUILD2_AUTOCONF_FREEBSD_PREREQ(8, 0)   || \
+    BUILD2_AUTOCONF_NETBSD_PREREQ(6, 0)    || \
+    BUILD2_AUTOCONF_OPENBSD_PREREQ(201011) || \
+    BUILD2_AUTOCONF_MACOS_PREREQ(10, 7)    || \
+    defined(_WIN32)                        || \
+    defined(__MINGW32__)                   || \
     defined(__CYGWIN__)
 #  define HAVE_STRNLEN 1
 #endif
