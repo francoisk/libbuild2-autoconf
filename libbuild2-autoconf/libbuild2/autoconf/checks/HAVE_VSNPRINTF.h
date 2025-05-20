@@ -1,19 +1,13 @@
-// HAVE_VSNPRINTF : BUILD2_AUTOCONF_LIBC_VERSION
-
-#ifndef BUILD2_AUTOCONF_LIBC_VERSION
-#  error BUILD2_AUTOCONF_LIBC_VERSION appears to be conditionally included
-#endif
+// HAVE_VSNPRINTF : HAVE_SNPRINTF
 
 #undef HAVE_VSNPRINTF
 
 /* Checks for the vsnprintf() function, which formats
  * a string into a buffer with variable arguments.
+ *
+ * vsnprintf() and snprintf() were added at the same time in all of the
+ * systems I checked (see HAVE_SNPRINTF.h).
  */
-#if defined(__linux__) || \
-    defined(__APPLE__) || \
-    defined(__FreeBSD__) || \
-    defined(__NetBSD__) || \
-    defined(__OpenBSD__) || \
-    defined(_WIN32)
+#ifdef HAVE_SNPRINTF
 #  define HAVE_VSNPRINTF 1
 #endif
