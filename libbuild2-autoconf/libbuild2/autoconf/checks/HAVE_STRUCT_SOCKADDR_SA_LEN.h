@@ -8,11 +8,11 @@
 
 /* Check for the presence of the sa_len field in the sockaddr structure,
  * which defines the length of the address structure.
- * Supported on FreeBSD 4.0, OpenBSD 2.0, NetBSD 1.5, and macOS 10.0+
+ * Supported on FreeBSD, OpenBSD, NetBSD, and macOS.
  */
-#if BUILD2_AUTOCONF_FREEBSD_PREREQ(4, 0)   || \
-    BUILD2_AUTOCONF_OPENBSD_PREREQ(199610) || \
-    BUILD2_AUTOCONF_NETBSD_PREREQ(1, 5)    || \
-    BUILD2_AUTOCONF_MACOS_PREREQ(10, 0)
+#if defined(__FreeBSD__) || \
+    defined(__OpenBSD__) || \
+    defined(__NetBSD__)  || \
+    defined(BUILD2_AUTOCONF_MACOS)
 #  define HAVE_STRUCT_SOCKADDR_SA_LEN 1
 #endif
