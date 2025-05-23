@@ -7,7 +7,7 @@
 #undef HAVE_DECL_STRSEP
 
 /* Checks for the declaration of the strsep() function,
- * which tokenizes strings by replacing delimiters with \\0.
+ * which tokenizes strings by replacing delimiters with the nul character.
  */
 #if defined(__linux__) || \
     BUILD2_AUTOCONF_FREEBSD_PREREQ(1, 0) || \
